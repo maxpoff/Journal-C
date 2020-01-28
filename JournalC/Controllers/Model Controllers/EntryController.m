@@ -79,49 +79,4 @@ static NSString * const EntriesKey = @"entries";
         [self addEntry:entry];
     }
 }
-
-//- (void)saveToPersistentStore {
-//    NSMutableArray *entriesToSave = [NSMutableArray<NSDictionary *> new];
-//    for (Entry *entry in self.entries) {
-//        [entriesToSave addObject:[entry dictionaryRepresentation]];
-//    }
-//    NSError *error = nil;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:entriesToSave
-//                                                       options:kNilOptions
-//                                                         error:&error];
-//    if (error) {
-//        NSLog(@"Unable to convert entries to JSON: %@", error);
-//        return;
-//    }
-//    NSURL *url = [EntryController persistentStoreFileURL];
-//    [jsonData writeToURL:url atomically:YES];
-//}
-//- (void)loadFromPersistentStore {
-//    NSURL *url = [EntryController persistentStoreFileURL];
-//    NSError *error;
-//    NSData *data = [NSData dataWithContentsOfURL:url options:kNilOptions error:&error];
-//    if (error) {
-//        NSLog(@"Error loading JSON data from file: %@", error);
-//        return;
-//    }
-//    NSArray *rawEntries = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//    if (error) {
-//        NSLog(@"Error converting JSON data to NSObject: %@", error);
-//        return;
-//    }
-//    NSMutableArray *newEntries = [NSMutableArray new];
-//    for (NSDictionary *entryDict in rawEntries) {
-//        Entry *entry = [[Entry alloc] initWithDictionary:entryDict];
-//        if (entry) {
-//            [newEntries addObject:entry];
-//        }
-//    }
-//    self.entries = newEntries;
-//}
-//+ (NSURL *)persistentStoreFileURL {
-//    NSArray<NSURL *> *urls = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-//                                                                    inDomains:NSUserDomainMask];
-//    return [urls[0] URLByAppendingPathComponent:@"journal.json"];
-//}
-
 @end
